@@ -1,22 +1,22 @@
-# Qual o prazo de devolução para carga perigosa?
-**Resposta:** Com base apenas nos documentos fornecidos, não há um prazo de devolução aplicável a cargas perigosas.
-A Política de Devolução POL-001 (seção 3.2) estabelece o prazo de 7 dias úteis após o recebimento, mas exclui explicitamente as cargas classificadas como perigosas (classes 1 a 6 da ANTT) dessa regra. Ou seja, essas cargas são uma exceção à política de devolução, e o documento não define um prazo alternativo para elas.
-O que posso afirmar com segurança a partir do contexto: carga perigosa não se enquadra na devolução padrão de 7 dias úteis. Qualquer prazo específico para esse caso não consta dos documentos disponíveis — seria necessário consultar uma política ou procedimento dedicado a cargas perigosas (que não foi fornecido aqui).
+# Resposta à pergunta de teste
 
-**Análise:** A resposta está correta, citou a fonte e respeitou os guardreails (não inventou informação desconhecida).  
+**Pergunta do atendente:** "Meu cliente é Gold, qual o SLA de resolução?"
 
-# Meu cliente é Gold, qual o SLA de resolução?
-**Resposta:** De acordo com a Tabela SLA-2024 (Chunk B), para o Cliente Gold o SLA de resolução é de até 24h.
-(Como referência adicional, o mesmo nível também prevê resposta em até 2h.)
+## Resposta
 
-**Análise:** A resposta está correta, citou a fonte e respeitou os guardreails. 
+Para o cliente **Gold**, o SLA de resolução depende do tipo de chamado:
 
-# Quanto custa o frete para 600kg para Manaus?
+- **Chamados gerais:** resolução em até **24h úteis**
+- **Incidentes críticos:** resolução em até **4h**
 
-**Resposta:** Com base no PROC-042-v2, seção 2 (Chunk C), posso te dar a fórmula e o multiplicador, mas não o valor final.
-A carga de 600kg se enquadra no frete especial (acima de 500kg). Manaus fica no Amazonas, ou seja, Região Norte, cujo multiplicador é 1.8.
-O cálculo seria:
-Frete = valor base × 1.8
-O que falta: o documento não informa o valor base do frete. Sem esse número, não é possível chegar ao custo final. Para fechar a conta, seria necessário consultar a tabela de valor base (que não consta no contexto fornecido).
+*Fonte: SLA-2024 — Tabela de SLA por Tipo de Cliente, seções 2 e 3.*
 
-**Análise:** A resposta está correta, citou a fonte e respeitou os guardreails (não inventou informação desconhecida). 
+## Observação importante sobre a recuperação
+
+O trecho recuperado no contexto dinâmico (Chunk B) contém apenas a linha de **chamados gerais**:
+
+> "Cliente Gold — resposta em até 2h, resolução em até 24h."
+
+Respondendo só por esse chunk, o assistente diria "24h" — correto, porém **incompleto**. O documento completo (SLA-2024) mostra que o Gold também tem um SLA de **4h** para incidentes críticos.
+
+Como o atendente perguntou de forma genérica ("qual o SLA de resolução"), sem qualificar o tipo de chamado, a resposta segura é apresentar os **dois** prazos. Omitir o prazo de incidente crítico pode levar a uma violação de SLA — lembrando que, segundo a seção 5 da SLA-2024, o relógio de incidentes críticos de clientes Gold **não pausa** fora do horário comercial.
