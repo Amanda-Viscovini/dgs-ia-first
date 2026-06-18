@@ -1,0 +1,48 @@
+{
+  "_comment": "Config MCP do NovaTech Assistant — variante npx (local, gratuita). Least privilege por ESCOPO: server de codigo (rw) separado do server de fontes de negocio (apenas leitura). ATENCAO: via npx o server-filesystem expoe tools de escrita em qualquer diretorio passado; para read-only DETERMINISTICO nas fontes de negocio use mcp.docker-readonly.json. Confirme nomes de pacote no README oficial de modelcontextprotocol/servers.",
+"mcpServers": {
+    "filesystem": {
+      "command": "C:\\PROGRA~1\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\Users\\amanda.viscovini\\Desktop\\IA First\\DGS\\dgs-ai-first\\pratica-2\\Pratica 2\\Anexo-D-starter-repo-novatech-assistant\\novatech-assistant\\src",
+        "C:\\Users\\amanda.viscovini\\Desktop\\IA First\\DGS\\dgs-ai-first\\pratica-2\\Pratica 2\\Anexo-D-starter-repo-novatech-assistant\\novatech-assistant\\specs",
+        "C:\\Users\\amanda.viscovini\\Desktop\\IA First\\DGS\\dgs-ai-first\\pratica-2\\Pratica 2\\Anexo-D-starter-repo-novatech-assistant\\novatech-assistant\\skills",
+        "C:\\Users\\amanda.viscovini\\Desktop\\IA First\\DGS\\dgs-ai-first\\pratica-2\\Pratica 2\\Anexo-D-starter-repo-novatech-assistant\\novatech-assistant\\prompts",
+        "C:\\Users\\amanda.viscovini\\Desktop\\IA First\\DGS\\dgs-ai-first\\pratica-2\\Pratica 2\\Anexo-D-starter-repo-novatech-assistant\\novatech-assistant\\docs\\adr"
+      ]
+    },
+    "filesystem-novatech-docs": {
+      "command": "C:\\PROGRA~1\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\Users\\amanda.viscovini\\Desktop\\IA First\\DGS\\dgs-ai-first\\pratica-2\\Pratica 2\\Anexo-D-starter-repo-novatech-assistant\\novatech-assistant\\docs\\novatech",
+        "C:\\Users\\amanda.viscovini\\Desktop\\IA First\\DGS\\dgs-ai-first\\pratica-2\\Pratica 2\\Anexo-D-starter-repo-novatech-assistant\\novatech-assistant\\data\\retrieval-corpus"
+      ]
+    },
+    "git": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-git",
+        "--repository",
+        "C:\\Users\\amanda.viscovini\\Desktop\\IA First\\DGS\\dgs-ai-first\\pratica-2\\Pratica 2\\Anexo-D-starter-repo-novatech-assistant\\novatech-assistant"
+      ]
+    },
+    "memory": {
+      "command": "C:\\PROGRA~1\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    },
+    "everything": {
+      "command": "C:\\PROGRA~1\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-everything"
+      ]
+    }
+  }
+}

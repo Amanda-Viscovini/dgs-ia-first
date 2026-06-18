@@ -1,0 +1,32 @@
+{
+  "_comment": "Variante RECOMENDADA para read-only DETERMINISTICO. O server-filesystem so impoe read-only quando rodado via Docker com mount ',ro'. Aqui as fontes de negocio (docs/novatech, data/retrieval-corpus) sao montadas como read-only e o codigo do time como read-write. Ajuste os caminhos absolutos 'src=' para a sua maquina (no Windows use barras duplas: C:\\\\caminho\\\\repo). Confirme a imagem/flags no README oficial de modelcontextprotocol/servers.",
+  "mcpServers": {
+    "filesystem": {
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm",
+        "--mount", "type=bind,src=${REPO}/src,dst=/projects/src",
+        "--mount", "type=bind,src=${REPO}/specs,dst=/projects/specs",
+        "--mount", "type=bind,src=${REPO}/skills,dst=/projects/skills",
+        "--mount", "type=bind,src=${REPO}/prompts,dst=/projects/prompts",
+        "--mount", "type=bind,src=${REPO}/docs/adr,dst=/projects/docs/adr",
+        "--mount", "type=bind,src=${REPO}/docs/novatech,dst=/projects/docs/novatech,ro",
+        "--mount", "type=bind,src=${REPO}/data/retrieval-corpus,dst=/projects/data/retrieval-corpus,ro",
+        "mcp/filesystem",
+        "/projects"
+      ]
+    },
+    "git": {
+      "command": "uvx",
+      "args": ["mcp-server-git", "--repository", "."]
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
+    },
+    "everything": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-everything"]
+    }
+  }
+}
